@@ -56,7 +56,7 @@
     </label>
 </div>
 
-<table class="tasks">
+<table class="tasks ">
    
     <?php foreach($tasks as $task) { 
         if ($task["Выполнен"] === true && $show_complete_tasks === 1) {
@@ -64,12 +64,12 @@
         ?>
         
         <!-- <tr class="tasks__item task" > -->
-        <tr class="tasks__item task task--completed" >
+        <tr class="tasks__item task task--completed " >
         <td class="task__select">
             <label class="checkbox task__checkbox">
                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox"
                     value="1">
-                <span class="checkbox__text"><?=$task["Задание"]?></span>
+                <span class="checkbox__text"><?=htmlspecialchars($task["Задание"]);?></span>
             </label>
         </td>
 
@@ -77,19 +77,30 @@
             <!-- <a class="download-link" href="#"></a> -->
         </td>
 
-        <td class="task__date"><?=$task["Дата выполнения"]?></td>
+        <td class="task__date"><?=htmlspecialchars($task["Дата выполнения"]);?></td>
     </tr>
     
     <?php 
- } elseif($task["Выполнен"] === false) { ?>
+    // не выполненные задачи 
+ } elseif($task["Выполнен"] === false ) {
+    
+    //если null то обходим
+    if( $task["Дата выполнения"] !== null ) {
 
-  <tr class="tasks__item task" >
+    $userdate = date_create($task["Дата выполнения"]);
+    $diffdate = alarmtime($userdate);   
+    // добавляем огонек
+    if($diffdate<2 ) { ?>
+        <tr class="tasks__item task task--important" > 
+    <?php } else { ?>
+  <tr class="tasks__item task " > 
+    <?php } }; ?>
   <!-- <tr class="tasks__item task task--completed" > -->
         <td class="task__select">
             <label class="checkbox task__checkbox">
                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox"
                     value="1">
-                <span class="checkbox__text"><?=$task["Задание"]?></span>
+                <span class="checkbox__text"><?=htmlspecialchars($task["Задание"])?></span>
             </label>
         </td>
 
@@ -97,7 +108,7 @@
             <!-- <a class="download-link" href="#"></a> -->
         </td>
 
-        <td class="task__date"><?=$task["Дата выполнения"]?></td>
+        <td class="task__date"><?= strip_tags($task["Дата выполнения"]); ?></td>
     </tr>
 
 <?php 
