@@ -1,7 +1,4 @@
-<?php
-require('../counttasks.php'); 
 
-?>
 <!DOCTYPE html>
 <html lang="ru">
 
