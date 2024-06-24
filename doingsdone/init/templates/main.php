@@ -77,7 +77,7 @@
             <!-- <a class="download-link" href="#"></a> -->
         </td>
 
-        <td class="task__date"><?=htmlspecialchars($task["Дата выполнения"]);?></td>
+        <td class="task__date"><?=$task["Дата выполнения"];?></td>
     </tr>
     
     <?php 
@@ -90,7 +90,7 @@
     $userdate = date_create($task["Дата выполнения"]);
     $diffdate = alarmtime($userdate);   
     // добавляем огонек
-    if($diffdate<2 ) { ?>
+    if($diffdate < 2 ) { ?>
         <tr class="tasks__item task task--important" > 
     <?php } else { ?>
   <tr class="tasks__item task " > 
@@ -108,7 +108,7 @@
             <!-- <a class="download-link" href="#"></a> -->
         </td>
 
-        <td class="task__date"><?= strip_tags($task["Дата выполнения"]); ?></td>
+        <td class="task__date"><?= $task["Дата выполнения"]; ?></td>
     </tr>
 
 <?php 
