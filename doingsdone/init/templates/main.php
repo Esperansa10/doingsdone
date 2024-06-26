@@ -39,13 +39,15 @@
         <a href="/" class="tasks-switch__item">Просроченные</a>
     </nav>
 
-    <label class="checkbox">
+    <label class="checkbox"  id="c1">
         <!--добавить сюда атрибут "checked", если переменная $show_complete_tasks равна единице-->
         <?php if ($show_complete_tasks === 1) {
             ?><input class="checkbox__input visually-hidden show_completed" type="checkbox"
                 checked>
+              
         <?php } else { ?>
             <input class="checkbox__input visually-hidden show_completed" type="checkbox">
+           
         <?php }; 
         // считаем кол-во задач
         

@@ -102,6 +102,7 @@
 
     <script src="flatpickr.js"></script>
     <script src="script.js"></script>
+    <script src="checkbox.js"></script>
 </body>
 
 </html>

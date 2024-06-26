@@ -1,5 +1,10 @@
 <? 
- $show_complete_tasks = rand(0, 1);
+ $show_complete_tasks = $_GET['show_completed'] ?? 0;
+//  var_dump( $show_complete_tasks); 
+//  die; 
+
+ 
+
  $categories = ['Входящие', 'Учеба', 'Работа', 'Домашние дела', 'Авто']; 
 
  $tasks = [

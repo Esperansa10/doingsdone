@@ -35,3 +35,4 @@ flatpickr('#date', {
   dateFormat: "Y-m-d",
   locale: "ru"
 });
+
